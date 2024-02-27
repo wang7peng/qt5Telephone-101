@@ -11,6 +11,9 @@ char glb_serverip[18];
 //extern int Default_line; // in file: qt_pjsip_interface.c
 int Default_line;
 
+const int pixh = 48;
+const int pixw = 48;
+
 // 获取 sip-config.json 文件位置，具体配置写在 qt.config.ini
 QString getPos_SipConf() {
     QSettings *s = new QSettings("D:\\proj_qt6\\qt.config.ini", QSettings::IniFormat);
@@ -84,8 +87,42 @@ MainWindow::~MainWindow()
 
 void MainWindow::UpdateUI()
 {
+    auto pixmap = QPixmap(":/images/reg.png");
+    ui->labelICON->setPixmap(pixmap.scaled(pixh,pixw,Qt::KeepAspectRatio, Qt::SmoothTransformation));
+
     if (curAccountID == -1)
         ui->labelAccount->setText("No account");
     else
         ui->labelAccount->setText(accname);
+
+    // DND图标控制, 默认不显示, 由 13 号按钮控制, 如果显示就同时显示文字
+    if (m_DNDState) {
+        ui->labelDND->setVisible(true);
+        ui->labelDNDinIDLE->setText("Do not disturb");
+    } else {
+        ui->labelDND->setVisible(false);
+        ui->labelDNDinIDLE->setText("");
+    }
+
+    // 联网图标控制, 默认网线插入成功联网, 如果断网就显示另一个断网图标
+    if (state_RJ45) {
+        ui->labelNet->setVisible(true);
+        ui->labelNetOff->setVisible(false);
+    } else {
+        ui->labelNet->setVisible(false);
+        ui->labelNetOff->setVisible(true);
+    }
 }
+
+void MainWindow::on_pushButton_1_clicked()
+{
+    qDebug() << "点击" << ui->pushButton_1->text();
+}
+
+
+void MainWindow::on_pushButton_13_pressed()
+{
+    m_DNDState = !m_DNDState;
+    this->UpdateUI();
+}
+

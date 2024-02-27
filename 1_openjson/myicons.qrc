@@ -2,5 +2,7 @@
     <qresource prefix="/">
         <file>images/net_on.png</file>
         <file>images/net_off.png</file>
+        <file>images/reg.png</file>
+        <file>images/dnd.png</file>
     </qresource>
 </RCC>

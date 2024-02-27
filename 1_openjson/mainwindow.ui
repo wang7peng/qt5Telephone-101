@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>682</width>
+    <width>670</width>
     <height>386</height>
    </rect>
   </property>
@@ -14,16 +14,23 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>40</y>
-      <width>551</width>
+      <y>20</y>
+      <width>571</width>
       <height>66</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QLabel" name="labelICON">
+       <property name="text">
+        <string>icon</string>
+       </property>
+      </widget>
+     </item>
      <item>
       <widget class="QLabel" name="labelAccount">
        <property name="text">
@@ -45,13 +52,66 @@
       </spacer>
      </item>
      <item>
+      <widget class="QLabel" name="labelDND">
+       <property name="pixmap">
+        <pixmap resource="myicons.qrc">:/images/dnd.png</pixmap>
+       </property>
+      </widget>
+     </item>
+     <item>
       <widget class="QLabel" name="labelNet">
        <property name="pixmap">
         <pixmap resource="myicons.qrc">:/images/net_on.png</pixmap>
        </property>
       </widget>
      </item>
+     <item>
+      <widget class="QLabel" name="labelNetOff">
+       <property name="pixmap">
+        <pixmap resource="myicons.qrc">:/images/net_off.png</pixmap>
+       </property>
+      </widget>
+     </item>
     </layout>
+   </widget>
+   <widget class="QPushButton" name="pushButton_1">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>120</y>
+      <width>121</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Button1</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_13">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>280</y>
+      <width>121</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Button13</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labelDNDinIDLE">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>130</y>
+      <width>171</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -59,7 +119,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>682</width>
+     <width>670</width>
      <height>25</height>
     </rect>
    </property>
